@@ -15,4 +15,5 @@ Aims:
 <!-- OVERVIEW START -->
 |ID|Name|Difficulty|Source Code
 |--|---|-----|---------|
+|1|[Two Sum](https://leetcode.com/problems/two-sum/description/)|Easy|[001-two-sum.py](./001-two-sum.py)|
 <!-- OVERVIEW END -->
