@@ -16,9 +16,9 @@ class Solution:
         return []
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     solver = Solution()
 
-    nums = input_int_list('nums: ')
-    target = input_int('target: ')
+    nums = input_int_list("nums: ")
+    target = input_int("target: ")
     print(solver.twoSum(nums, target))

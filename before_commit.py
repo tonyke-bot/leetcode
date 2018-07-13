@@ -55,7 +55,7 @@ def update_readme():
     problems = get_problems()
 
     local_problems = []
-    for name in os.listdir('.'):
+    for name in os.listdir("."):
         if not re.match("^\d{3}-[a-zA-Z\-]*?\.py$", name):
             continue
 
