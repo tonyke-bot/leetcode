@@ -3,6 +3,7 @@
 1. Rename filename
 2. Fill README.md with problem info
 """
+import argparse
 import os
 import os.path
 import re
@@ -39,8 +40,8 @@ def rename_filenames(directory):
         new_filename = "{:03d}-{}.py".format(question_id, slug)
         print("  {} => {}".format(name, new_filename))
         os.renames(
-            os.path.join(directory, name),
-            os.path.join(directory, new_filename))
+            os.path.join(directory, name), os.path.join(
+                directory, new_filename))
 
 
 def update_readme():
@@ -66,13 +67,14 @@ def update_readme():
             print("didn't find question id {}".format(question_id))
             exit(1)
 
-        local_problems.append(dict(
-            id=problem.id,
-            title=problem.title,
-            level=problem.level,
-            slug=problem.slug,
-            file=name,
-        ))
+        local_problems.append(
+            dict(
+                id=problem.id,
+                title=problem.title,
+                level=problem.level,
+                slug=problem.slug,
+                file=name,
+            ))
 
     local_problems = sorted(local_problems, key=lambda x: x["id"])
     link_template = \
@@ -94,9 +96,20 @@ def update_readme():
     open("./README.md", "w", encoding="utf8").write(readme.replace(old, new))
 
 
-if __name__ == "__main__":
+def before_commit():
     print("rename")
     rename_filenames(".")
 
     print("update README")
     update_readme()
+
+
+if __name__ == "__main__":
+    commands = {
+        "pre-commit": before_commit,
+    }
+    parser = argparse.ArgumentParser()
+    parser.add_argument("command", choices=commands.keys())
+    args = parser.parse_args()
+
+    commands[args.command]()
