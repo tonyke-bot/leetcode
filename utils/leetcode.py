@@ -1,50 +1,68 @@
-import urllib.request
+import gzip
 import json
-from functools import lru_cache
+import urllib.request
+import pickle
 
 
-class Problem:
-    def __init__(self, id, title, slug, level):
-        self.id = id
-        self.title = title
-        self.slug = slug
-        self.level = level
+def graphql(query):
+    csrf = "61DlaZIPNSvNIKWqSv0tvt9NF0bF7wG4dS98BQE5zgp4sbu00VZzmenGq0vUcWJY"
+    headers = {
+        "accept-encoding": "gzip",
+        "content-type": "application/json",
+        "referer": "https://leetcode.com/problems/",
+        "user-agent": "LeetCode/1.0.0",
+        "x-csrftoken": csrf,
+        "cookie": "csrftoken=" + csrf,
+    }
+    url = "https://leetcode.com/graphql"
+    post_data = json.dumps(dict(query=query)).encode("utf8")
+    req = urllib.request.Request(url, data=post_data, headers=headers)
+    req.method = "POST"
+    furl = urllib.request.urlopen(req)
 
-    def __repr__(self):
-        return "Problem {}: {} ({})".format(
-            self.id, self.title, self.level)
+    gzipper = gzip.GzipFile(fileobj=furl)
+
+    result = json.loads(gzipper.read().decode("utf8"))["data"]
+    return result
 
 
-def parse_difficulty_level(level):
-    return {
-        1: "Easy",
-        2: "Medium",
-        3: "Hard"
-    }[level]
+def get_problems(update=False):
+    cache_path = "./problems.cache"
+    if not update:
+        try:
+            return pickle.load(open(cache_path, "rb"))
+        except Exception as exp:
+            print("loading problems cache fail:", exp)
+            pass
 
+    result = graphql("query {\n"
+                     "    questions: allQuestions {\n"
+                     "        id: questionId\n"
+                     "        title: questionTitle\n"
+                     "        slug: questionTitleSlug\n"
+                     "        level: difficulty\n"
+                     "        tags: topicTags { name }\n"
+                     "        code: codeDefinition\n"
+                     "        test_case: sampleTestCase\n"
+                     "    }\n"
+                     "}")["questions"]
 
-@lru_cache()
-def get_problems():
-    url = "https://leetcode.com/api/problems/all/"
-    req = urllib.request.Request(url, headers={"User-Agent": "LeetCode/1.0.0"})
-    f = urllib.request.urlopen(req)
+    for p in result:
+        # flatten tags
+        p["tags"] = [t["namename"] for t in p["tags"]]
 
-    data = json.loads(f.read().decode("utf-8"))
-    problems = dict()
+        # solution template
+        codes = json.loads(p["code"])
+        p["code"] = None
+        for code in codes:
+            if code["value"] == "python3":
+                p["code"] = code["defaultCode"]
+                break
 
-    for problem in data["stat_status_pairs"]:
-        stat = problem["stat"]
-        id = stat["question_id"]
-        problems[id] = Problem(
-            id=stat["question_id"],
-            title=stat["question__title"],
-            slug=stat["question__title_slug"],
-            level=parse_difficulty_level(problem["difficulty"]["level"]),
-        )
-
+    problems = dict([(problem["id"], problem) for problem in result])
+    pickle.dump(problems, open(cache_path, "wb"))
     return problems
 
 
 if __name__ == "__main__":
-    problems = get_problems()
-    print(problems[1])
+    print(get_problems(True))

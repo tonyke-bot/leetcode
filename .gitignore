@@ -1,6 +1,9 @@
 # Dev
 .vscode
 
+# Cache
+problems.cache
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

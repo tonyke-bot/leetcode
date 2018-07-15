@@ -10,6 +10,8 @@ import re
 
 from utils.leetcode import get_problems
 
+FORCE_UPDATE_PROBLEMS = False
+
 
 def get_unnamed_file(directory):
     names = []
@@ -28,15 +30,15 @@ def rename_filenames(directory):
         print("  no files need to be renamed")
         return
 
-    problems = get_problems()
+    problems = get_problems(FORCE_UPDATE_PROBLEMS)
     for name in names:
         question_id = int(os.path.splitext(name)[0])
-        problem = problems.get(question_id)
+        problem = problems.get(str(question_id))
         if not problem:
             print("didn't find question id {}".format(question_id))
             exit(1)
 
-        slug = problem.slug
+        slug = problem["slug"]
         new_filename = "{:03d}-{}.py".format(question_id, slug)
         print("  {} => {}".format(name, new_filename))
         os.renames(
@@ -49,40 +51,35 @@ def update_readme():
     overview_end_tag = "<!-- OVERVIEW END -->"
     overview_tables_lines = [
         overview_start_tag,
-        "|ID|Name|Difficulty|Source Code",
-        "|--|---|-----|---------|",
+        "#|Name|Difficulty|Solution|Tags",
+        "-|----|----------|--------|----",
     ]
 
-    problems = get_problems()
+    problems = get_problems(FORCE_UPDATE_PROBLEMS)
 
-    local_problems = []
+    lines = []
     for name in os.listdir("."):
         if not re.match("^\d{3}-[a-zA-Z\-]*?\.py$", name):
             continue
 
         question_id = int(name[:3])
-        problem = problems.get(question_id)
+        problem = problems.get(str(question_id))
 
         if not problem:
             print("didn't find question id {}".format(question_id))
             exit(1)
 
-        local_problems.append(
-            dict(
-                id=problem.id,
-                title=problem.title,
-                level=problem.level,
-                slug=problem.slug,
-                file=name,
-            ))
+        lines.append([
+            problem["id"],
+            "[{}](https://leetcode.com/problems/{}/description/)".format(
+                problem["title"], problem["slug"]),
+            problem["level"],
+            "[{0}](./{0})".format(name),
+            " ".join(["`" + tag + "`" for tag in problem["tags"]]),
+        ])
 
-    local_problems = sorted(local_problems, key=lambda x: x["id"])
-    link_template = \
-        "[{title}](https://leetcode.com/problems/{slug}/description/)"
-    overview_tables_lines += [
-        ("|{id}|" + link_template + "|{level}|[{file}](./{file})|").format(**p)
-        for p in local_problems
-    ]
+    lines = sorted(lines, key=lambda x: int(x[0]))
+    overview_tables_lines += ["|".join(line) for line in lines]
     overview_tables_lines.append(overview_end_tag)
 
     readme = open("./README.md", encoding="utf8").read()
@@ -104,12 +101,47 @@ def before_commit():
     update_readme()
 
 
+def new_problem():
+    problems = get_problems(FORCE_UPDATE_PROBLEMS)
+    question_id = input('question id: ')
+
+    problem = problems.get(question_id)
+    if not problem:
+        print("didn't find question id {}".format(question_id))
+        exit(1)
+
+    solution = problem["code"] or ""
+    test_case = (problem["test_case"] or "").split("\n")
+    print(test_case)
+
+    problem_id = int(problem["id"])
+    problem_slug = problem["slug"]
+
+    filename = "{:03d}-{}.py".format(problem_id, problem_slug)
+    content = \
+        "\n\n" + \
+        solution + \
+        "\n\n" + \
+        "if __name__ == '__main__':\n" + \
+        "    solver = Solution()\n" + \
+        "    # Test Case:\n" + \
+        "\n".join(["    # " + line for line in test_case])
+
+    open(filename, "w").write(content)
+
+
 if __name__ == "__main__":
     commands = {
         "pre-commit": before_commit,
+        "new": new_problem,
     }
     parser = argparse.ArgumentParser()
     parser.add_argument("command", choices=commands.keys())
+    parser.add_argument(
+        "-f",
+        "--force-update",
+        action="store_true",
+        help="force update problems")
     args = parser.parse_args()
 
     commands[args.command]()
