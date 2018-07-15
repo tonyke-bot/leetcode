@@ -112,7 +112,6 @@ def new_problem():
 
     solution = problem["code"] or ""
     test_case = (problem["test_case"] or "").split("\n")
-    print(test_case)
 
     problem_id = int(problem["id"])
     problem_slug = problem["slug"]
