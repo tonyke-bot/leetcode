@@ -50,7 +50,7 @@ func Format(forceUpdate bool) {
 
 		tableContent += strings.Join([]string{
 			strconv.Itoa(question.ID),
-			fmt.Sprintf("[%s](https://leetcode.com/problems/%s/description/) [[Solution](%s)]", question.Title, question.Slug, filename),
+			fmt.Sprintf("[%s](https://leetcode.com/problems/%s) [[Solution](%s)]", question.Title, question.Slug, filename),
 			question.Level,
 			strings.TrimLeft(strings.Join(tags, " "), " "),
 		}, "|") + "\n"
