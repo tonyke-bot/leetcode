@@ -26,9 +26,6 @@ func Format(forceUpdate bool) {
 	readmePath := "../README.md"
 	questions := getQuestions(forceUpdate)
 	solutions := GetSolutionList()
-	if len(solutions) == 0 {
-		panic("Nothing to be formatted")
-	}
 
 	// Generate Table
 	var questionInfos []Question
@@ -42,7 +39,7 @@ func Format(forceUpdate bool) {
 	}
 	sort.Sort(QuestionInfos(questionInfos))
 
-	tableContent := "#|Name|Difficulty|Tags\n-|----|----------|--------|----\n"
+	tableContent := "#|Name|Difficulty|Tags\n-|----|----------|----\n"
 	for _, question := range questionInfos {
 		filename := fmt.Sprintf("%d_%s.go", question.ID, strings.Replace(question.Slug, "-", "_", -1))
 		tags := make([]string, len(question.Tags))
