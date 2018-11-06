@@ -29,8 +29,8 @@ func create(id int, forceUpdate bool) {
 	}
 
 	sourceURL := "https://leetcode.com/problems/" + question.Slug
-	sourceCode := fmt.Sprintf("// Source: %s\npackage %s\n\n%s\n/*\nTest Case:\n%s\n*/",
-		sourceURL, packageName, question.Code, question.TestCase)
+	sourceCode := fmt.Sprintf("package %s\n\n// Source: %s\n\n%s\n/*\nTest Case:\n%s\n*/",
+		packageName, sourceURL, question.Code, question.TestCase)
 	err := ioutil.WriteFile(newFilename, []byte(sourceCode), 0755)
 	if err != nil {
 		panic(fmt.Sprintf("Cannot write source code to %v", newFilename))
