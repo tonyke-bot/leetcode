@@ -31,7 +31,7 @@ func DownloadQuestions() (map[int]Question, error) {
 	questions := map[int]Question{}
 	resp, err := query("query {\n" +
 		"    questions: allQuestions {\n" +
-		"        id: questionId\n" +
+		"        id: questionFrontendId\n" +
 		"        title: questionTitle\n" +
 		"        slug: questionTitleSlug\n" +
 		"        level: difficulty\n" +
