@@ -10,7 +10,7 @@ import (
 	"strings"
 )
 
-var filenamePattern = regexp.MustCompile("(\\d*)_[0-9a-zA-Z_]*?\\.go")
+var filenamePattern = regexp.MustCompile("(\\d+)_[0-9a-zA-Z_]*?\\.go")
 var readmeTableStartTag = []byte("<!-- OVERVIEW START -->")
 var readmeTableEndTag = []byte("<!-- OVERVIEW END -->")
 
@@ -30,6 +30,9 @@ func Format(forceUpdate bool) {
 	// Generate Table
 	var questionInfos []Question
 	for _, filename := range solutions {
+		if strings.HasSuffix(filename, "_test.go") {
+			continue
+		}
 		id, _ := strconv.Atoi(filenamePattern.FindStringSubmatch(filename)[1])
 		question, found := questions[id]
 		if !found {
