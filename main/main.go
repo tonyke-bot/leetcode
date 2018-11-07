@@ -21,7 +21,7 @@ func create(id int, forceUpdate bool) {
 	}
 
 	cwd, _ := os.Getwd()
-	newFilename := path.Join(cwd, fmt.Sprintf("../%d_%s.go", question.ID, strings.Replace(question.Slug, "-", "_", -1)))
+	newFilename := path.Join(cwd, fmt.Sprintf("../%03d_%s.go", question.ID, strings.Replace(question.Slug, "-", "_", -1)))
 	packageName := "leetcode"
 
 	if _, err := os.Stat(newFilename); err != nil && os.IsExist(err) {

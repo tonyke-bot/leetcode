@@ -14,11 +14,11 @@ Aims:
 ### Problems Overview
 <!-- OVERVIEW START -->
 #|Name|Difficulty|Tags
--|----|----------|----
-1|[Two Sum](https://leetcode.com/problems/two-sum) [[Solution](1_two_sum.go)]|Easy|`Array` `Hash Table`
-2|[Add Two Numbers](https://leetcode.com/problems/add-two-numbers) [[Solution](2_add_two_numbers.go)]|Medium|`Linked List` `Math`
-4|[Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays) [[Solution](4_median_of_two_sorted_arrays.go)]|Hard|`Array` `Binary Search` `Divide and Conquer`
-5|[Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring) [[Solution](5_longest_palindromic_substring.go)]|Medium|`String` `Dynamic Programming`
+-:|----|----------|----
+1|[Two Sum](https://leetcode.com/problems/two-sum) [[Solution](001_two_sum.go)]|Easy|`Array` `Hash Table`
+2|[Add Two Numbers](https://leetcode.com/problems/add-two-numbers) [[Solution](002_add_two_numbers.go)]|Medium|`Linked List` `Math`
+4|[Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays) [[Solution](004_median_of_two_sorted_arrays.go)]|Hard|`Array` `Binary Search` `Divide and Conquer`
+5|[Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring) [[Solution](005_longest_palindromic_substring.go)]|Medium|`String` `Dynamic Programming`
 461|[Hamming Distance](https://leetcode.com/problems/hamming-distance) [[Solution](461_hamming_distance.go)]|Easy|`Bit Manipulation`
 617|[Merge Two Binary Trees](https://leetcode.com/problems/merge-two-binary-trees) [[Solution](617_merge_two_binary_trees.go)]|Easy|`Tree`
 657|[Robot Return to Origin](https://leetcode.com/problems/robot-return-to-origin) [[Solution](657_robot_return_to_origin.go)]|Easy|`String`

@@ -42,9 +42,10 @@ func Format(forceUpdate bool) {
 	}
 	sort.Sort(QuestionInfos(questionInfos))
 
-	tableContent := "#|Name|Difficulty|Tags\n-|----|----------|----\n"
+	tableContent := "#|Name|Difficulty|Tags\n" +
+		"-:|----|----------|----\n"
 	for _, question := range questionInfos {
-		filename := fmt.Sprintf("%d_%s.go", question.ID, strings.Replace(question.Slug, "-", "_", -1))
+		filename := fmt.Sprintf("%03d_%s.go", question.ID, strings.Replace(question.Slug, "-", "_", -1))
 		tags := make([]string, len(question.Tags))
 
 		for _, tag := range question.Tags {
