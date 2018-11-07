@@ -19,6 +19,12 @@ Aims:
 2|[Add Two Numbers](https://leetcode.com/problems/add-two-numbers) [[Solution](002_add_two_numbers.go)]|Medium|`Linked List` `Math`
 4|[Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays) [[Solution](004_median_of_two_sorted_arrays.go)]|Hard|`Array` `Binary Search` `Divide and Conquer`
 5|[Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring) [[Solution](005_longest_palindromic_substring.go)]|Medium|`String` `Dynamic Programming`
+7|[Reverse Integer](https://leetcode.com/problems/reverse-integer) [[Solution](007_reverse_integer.go)]|Easy|`Math`
+9|[Palindrome Number](https://leetcode.com/problems/palindrome-number) [[Solution](009_palindrome_number.go)]|Easy|`Math`
+13|[Roman to Integer](https://leetcode.com/problems/roman-to-integer) [[Solution](013_roman_to_integer.go)]|Easy|`Math` `String`
+14|[Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix) [[Solution](014_longest_common_prefix.go)]|Easy|`String`
+20|[Valid Parentheses](https://leetcode.com/problems/valid-parentheses) [[Solution](020_valid_parentheses.go)]|Easy|`String` `Stack`
+21|[Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists) [[Solution](021_merge_two_sorted_lists.go)]|Easy|`Linked List`
 461|[Hamming Distance](https://leetcode.com/problems/hamming-distance) [[Solution](461_hamming_distance.go)]|Easy|`Bit Manipulation`
 617|[Merge Two Binary Trees](https://leetcode.com/problems/merge-two-binary-trees) [[Solution](617_merge_two_binary_trees.go)]|Easy|`Tree`
 657|[Robot Return to Origin](https://leetcode.com/problems/robot-return-to-origin) [[Solution](657_robot_return_to_origin.go)]|Easy|`String`
