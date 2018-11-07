@@ -25,6 +25,13 @@ Aims:
 14|[Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix) [[Solution](014_longest_common_prefix.go)]|Easy|`String`
 20|[Valid Parentheses](https://leetcode.com/problems/valid-parentheses) [[Solution](020_valid_parentheses.go)]|Easy|`String` `Stack`
 21|[Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists) [[Solution](021_merge_two_sorted_lists.go)]|Easy|`Linked List`
+26|[Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array) [[Solution](026_remove_duplicates_from_sorted_array.go)]|Easy|`Array` `Two Pointers`
+27|[Remove Element](https://leetcode.com/problems/remove-element) [[Solution](027_remove_element.go)]|Easy|`Array` `Two Pointers`
+28|[Implement strStr()](https://leetcode.com/problems/implement-strstr) [[Solution](028_implement_strstr.go)]|Easy|`Two Pointers` `String`
+38|[Count and Say](https://leetcode.com/problems/count-and-say) [[Solution](038_count_and_say.go)]|Easy|`String`
+53|[Maximum Subarray](https://leetcode.com/problems/maximum-subarray) [[Solution](053_maximum_subarray.go)]|Easy|`Array` `Divide and Conquer` `Dynamic Programming`
+58|[Length of Last Word](https://leetcode.com/problems/length-of-last-word) [[Solution](058_length_of_last_word.go)]|Easy|`String`
+66|[Plus One](https://leetcode.com/problems/plus-one) [[Solution](066_plus_one.go)]|Easy|`Array` `Math`
 461|[Hamming Distance](https://leetcode.com/problems/hamming-distance) [[Solution](461_hamming_distance.go)]|Easy|`Bit Manipulation`
 617|[Merge Two Binary Trees](https://leetcode.com/problems/merge-two-binary-trees) [[Solution](617_merge_two_binary_trees.go)]|Easy|`Tree`
 657|[Robot Return to Origin](https://leetcode.com/problems/robot-return-to-origin) [[Solution](657_robot_return_to_origin.go)]|Easy|`String`
