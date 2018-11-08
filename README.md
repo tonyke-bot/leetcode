@@ -32,6 +32,17 @@ Aims:
 53|[Maximum Subarray](https://leetcode.com/problems/maximum-subarray) [[Solution](053_maximum_subarray.go)]|Easy|`Array` `Divide and Conquer` `Dynamic Programming`
 58|[Length of Last Word](https://leetcode.com/problems/length-of-last-word) [[Solution](058_length_of_last_word.go)]|Easy|`String`
 66|[Plus One](https://leetcode.com/problems/plus-one) [[Solution](066_plus_one.go)]|Easy|`Array` `Math`
+67|[Add Binary](https://leetcode.com/problems/add-binary) [[Solution](067_add_binary.go)]|Easy|`Math` `String`
+70|[Climbing Stairs](https://leetcode.com/problems/climbing-stairs) [[Solution](070_climbing_stairs.go)]|Easy|`Dynamic Programming`
+83|[Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list) [[Solution](083_remove_duplicates_from_sorted_list.go)]|Easy|`Linked List`
+88|[Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array) [[Solution](088_merge_sorted_array.go)]|Easy|`Array` `Two Pointers`
+100|[Same Tree](https://leetcode.com/problems/same-tree) [[Solution](100_same_tree.go)]|Easy|`Tree` `Depth-first Search`
+101|[Symmetric Tree](https://leetcode.com/problems/symmetric-tree) [[Solution](101_symmetric_tree.go)]|Easy|`Tree` `Depth-first Search` `Breadth-first Search`
+104|[Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree) [[Solution](104_maximum_depth_of_binary_tree.go)]|Easy|`Tree` `Depth-first Search`
+107|[Binary Tree Level Order Traversal II](https://leetcode.com/problems/binary-tree-level-order-traversal-ii) [[Solution](107_binary_tree_level_order_traversal_ii.go)]|Easy|`Tree` `Breadth-first Search`
+108|[Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree) [[Solution](108_convert_sorted_array_to_binary_search_tree.go)]|Easy|`Tree` `Depth-first Search`
+110|[Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree) [[Solution](110_balanced_binary_tree.go)]|Easy|`Tree` `Depth-first Search`
+111|[Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree) [[Solution](111_minimum_depth_of_binary_tree.go)]|Easy|`Tree` `Depth-first Search` `Breadth-first Search`
 461|[Hamming Distance](https://leetcode.com/problems/hamming-distance) [[Solution](461_hamming_distance.go)]|Easy|`Bit Manipulation`
 617|[Merge Two Binary Trees](https://leetcode.com/problems/merge-two-binary-trees) [[Solution](617_merge_two_binary_trees.go)]|Easy|`Tree`
 657|[Robot Return to Origin](https://leetcode.com/problems/robot-return-to-origin) [[Solution](657_robot_return_to_origin.go)]|Easy|`String`
