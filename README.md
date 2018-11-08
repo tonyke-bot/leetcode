@@ -43,6 +43,12 @@ Aims:
 108|[Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree) [[Solution](108_convert_sorted_array_to_binary_search_tree.go)]|Easy|`Tree` `Depth-first Search`
 110|[Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree) [[Solution](110_balanced_binary_tree.go)]|Easy|`Tree` `Depth-first Search`
 111|[Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree) [[Solution](111_minimum_depth_of_binary_tree.go)]|Easy|`Tree` `Depth-first Search` `Breadth-first Search`
+112|[Path Sum](https://leetcode.com/problems/path-sum) [[Solution](112_path_sum.go)]|Easy|`Tree` `Depth-first Search`
+118|[Pascal's Triangle](https://leetcode.com/problems/pascals-triangle) [[Solution](118_pascals_triangle.go)]|Easy|`Array`
+121|[Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock) [[Solution](121_best_time_to_buy_and_sell_stock.go)]|Easy|`Array` `Dynamic Programming`
+122|[Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii) [[Solution](122_best_time_to_buy_and_sell_stock_ii.go)]|Easy|`Array` `Greedy`
+125|[Valid Palindrome](https://leetcode.com/problems/valid-palindrome) [[Solution](125_valid_palindrome.go)]|Easy|`Two Pointers` `String`
+136|[Single Number](https://leetcode.com/problems/single-number) [[Solution](136_single_number.go)]|Easy|`Hash Table` `Bit Manipulation`
 461|[Hamming Distance](https://leetcode.com/problems/hamming-distance) [[Solution](461_hamming_distance.go)]|Easy|`Bit Manipulation`
 617|[Merge Two Binary Trees](https://leetcode.com/problems/merge-two-binary-trees) [[Solution](617_merge_two_binary_trees.go)]|Easy|`Tree`
 657|[Robot Return to Origin](https://leetcode.com/problems/robot-return-to-origin) [[Solution](657_robot_return_to_origin.go)]|Easy|`String`
