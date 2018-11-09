@@ -66,6 +66,8 @@ Aims:
 596|[Classes More Than 5 Students](https://leetcode.com/problems/classes-more-than-5-students) [[Solution](./596_classes_more_than_5_students.sql)]|Easy|
 617|[Merge Two Binary Trees](https://leetcode.com/problems/merge-two-binary-trees) [[Solution](./617_merge_two_binary_trees.go)]|Easy|`Tree`
 620|[Not Boring Movies](https://leetcode.com/problems/not-boring-movies) [[Solution](./620_not_boring_movies.sql)]|Easy|
+626|[Exchange Seats](https://leetcode.com/problems/exchange-seats) [[Solution](./626_exchange_seats.sql)]|Medium|
+627|[Swap Salary](https://leetcode.com/problems/swap-salary) [[Solution](./627_swap_salary.sql)]|Easy|
 657|[Robot Return to Origin](https://leetcode.com/problems/robot-return-to-origin) [[Solution](./657_robot_return_to_origin.go)]|Easy|`String`
 709|[To Lower Case](https://leetcode.com/problems/to-lower-case) [[Solution](./709_to_lower_case.go)]|Easy|`String`
 771|[Jewels and Stones](https://leetcode.com/problems/jewels-and-stones) [[Solution](./771_jewels_and_stones.go)]|Easy|`Hash Table`
