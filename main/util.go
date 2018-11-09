@@ -64,31 +64,28 @@ func GenerateQuestionCode(question Question) string {
 			testCase +
 			"\n"
 	case shell:
-		lines := strings.Split(strings.Replace(question.TestCase, "\r", "", -1), "\n")
-		result := "" +
+		testCase := formatGeneralTestCase(question.TestCase, "# ")
+		return "" +
 			"# " + problemURL + "\n" +
 			"\n" +
-			"# Test Case:\n"
-
-		for _, line := range lines {
-			result += "# " + line + "\n"
-		}
+			"# Test Case:\n" +
+			testCase
 	}
 
-	if _, found := question.Code[PrimaryLanguage]; found {
-		testCase := "\n"
+	if _, found := question.Code["golang"]; found {
+		testCase := formatGeneralTestCase(question.TestCase, "")
 		return "" +
+			"package leetcode\n" +
+			"\n" +
 			"/*\n" +
 			problemURL + "\n" +
 			"Test Case:\n" +
 			testCase +
 			"*/\n" +
 			"\n" +
-			"package leetcode\n" +
-			"\n" +
-			question.Code[PrimaryLanguage]
-	} else if _, found := question.Code[SecondaryLanguage]; found {
-		testCase := "\n"
+			question.Code["golang"]
+	} else if _, found := question.Code["python"]; found {
+		testCase := formatGeneralTestCase(question.TestCase, "")
 		return "" +
 			"'''\n" +
 			problemURL + "\n" +
@@ -96,13 +93,24 @@ func GenerateQuestionCode(question Question) string {
 			testCase +
 			"'''\n" +
 			"\n" +
-			question.Code[SecondaryLanguage] + "\n" +
+			question.Code["python"] + "\n" +
 			"\n" +
 			"if __name__ == 'main':\n" +
 			"    solver = Solution()\n"
 	}
 
 	panic("Cannot generate code for question")
+}
+
+func formatGeneralTestCase(rawTestCase string, linePrefix string) string {
+	result := ""
+
+	lines := strings.Split(strings.Replace(rawTestCase, "\r", "", -1), "\\n")
+	for _, line := range lines {
+		result += linePrefix + line + "\n"
+	}
+
+	return result
 }
 
 func formatDatabaseTestCase(rawTestCase string) string {
