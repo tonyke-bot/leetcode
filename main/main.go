@@ -1,70 +1,162 @@
 package main
 
 import (
+	"bytes"
 	"flag"
 	"fmt"
 	"io/ioutil"
-	"os"
 	"path"
+	"sort"
+	"strconv"
 	"strings"
 )
 
-func create(id int, forceUpdate bool) {
-	questions := getQuestions(forceUpdate)
+// QuestionInfos type implements series of function to make sorted by problem # possible
+type QuestionInfos []Question
+
+func (qInfos QuestionInfos) Len() int           { return len(qInfos) }
+func (qInfos QuestionInfos) Swap(i, j int)      { qInfos[i], qInfos[j] = qInfos[j], qInfos[i] }
+func (qInfos QuestionInfos) Less(i, j int) bool { return qInfos[i].ID < qInfos[j].ID }
+
+func format() {
+	readmePath := "../README.md"
+	readmeTableStartTag := []byte("<!-- OVERVIEW START -->")
+	readmeTableEndTag := []byte("<!-- OVERVIEW END -->")
+
+	files, err := ioutil.ReadDir("../")
+	if err != nil {
+		panic(fmt.Sprintf("Cannot ReadDir of .., error: %v", err))
+	}
+
+	// Generate Table
+	questions := getQuestions()
+	var questionInfos []Question
+	for _, f := range files {
+		id := ParseSolutionFilename(f.Name())
+		if id == -1 {
+			continue
+		}
+
+		question, found := questions[id]
+		if !found {
+			panic(fmt.Sprintf("Problem #%d is not found", id))
+		}
+		questionInfos = append(questionInfos, question)
+	}
+	sort.Sort(QuestionInfos(questionInfos))
+
+	tableContent := "#|Name|Difficulty|Tags\n" +
+		"-:|----|----------|----\n"
+	for _, question := range questionInfos {
+		filename := FormatFilename(question)
+		tags := make([]string, len(question.Tags))
+
+		for _, tag := range question.Tags {
+			tags = append(tags, "`"+tag.Name+"`")
+		}
+
+		tableContent += strings.Join([]string{
+			strconv.Itoa(question.ID),
+			fmt.Sprintf("[%s](https://leetcode.com/problems/%s) [[Solution](./%s)]", question.Title, question.Slug, filename),
+			question.Level,
+			strings.TrimLeft(strings.Join(tags, " "), " "),
+		}, "|") + "\n"
+	}
+
+	// Subsititude
+	readme, _ := ioutil.ReadFile(readmePath)
+	startPos := bytes.Index(readme, readmeTableStartTag)
+	endPos := bytes.LastIndex(readme, readmeTableEndTag)
+	switch {
+	case startPos == -1:
+		panic("Cannot find table start tag in README.md")
+	case endPos == -1:
+		panic("Cannot find table end tag in README.md")
+	case startPos > endPos:
+		panic("Cannot find table placeholder")
+	}
+
+	newReadme := string(readme[:startPos+len(readmeTableStartTag)]) + "\n" +
+		tableContent +
+		string(readme[endPos:])
+
+	// WriteFile
+	err = ioutil.WriteFile(readmePath, []byte(newReadme), 0755)
+	if err != nil {
+		panic(fmt.Sprintf("Fails to write README.MD, error: %v", err))
+	}
+}
+
+func create(id int) {
+	questions := getQuestions()
 	question, ok := questions[id]
 	if !ok {
 		fmt.Printf("Problem #%d not found\n", id)
+		return
 	}
 
 	if question.PaidOnly {
 		fmt.Println("This problem is paid user only")
+		return
 	}
 
-	cwd, _ := os.Getwd()
-	newFilename := path.Join(cwd, fmt.Sprintf("../%03d_%s.go", question.ID, strings.Replace(question.Slug, "-", "_", -1)))
-	packageName := "leetcode"
+	filename := FormatFilename(question)
+	newFilename := path.Join("..", filename)
+	// if _, err := os.Stat(newFilename); !os.IsNotExist(err) {
+	// 	fmt.Printf("File %s already existed\n", filename)
+	// 	return
+	// }
 
-	if _, err := os.Stat(newFilename); err != nil && os.IsExist(err) {
-		panic(fmt.Sprintf("File %s already existed", newFilename))
-	}
-
-	sourceURL := "https://leetcode.com/problems/" + question.Slug
-	sourceCode := fmt.Sprintf("package %s\n\n// Source: %s\n\n%s\n/*\nTest Case:\n%s\n*/",
-		packageName, sourceURL, question.Code, question.TestCase)
+	sourceCode := GenerateQuestionCode(question)
 	err := ioutil.WriteFile(newFilename, []byte(sourceCode), 0755)
 	if err != nil {
-		panic(fmt.Sprintf("Cannot write source code to %v", newFilename))
+		fmt.Printf("Cannot write source code to %v\n", newFilename)
+		panic(err)
 	}
 }
 
+func update() {
+	questions, err := DownloadQuestions()
+	if err != nil {
+		panic(err)
+	}
+	SaveQuestions(CacheFilename, questions)
+}
+
+func getQuestions() (questions map[int]Question) {
+	questions, err := LoadQuestions(CacheFilename)
+	if err != nil {
+		fmt.Printf("Fail to load questions from cache, error:%v\n", err)
+		fmt.Println("Please run `./go.sh update` manually")
+	}
+	return questions
+}
+
 func printDefault() {
-	fmt.Println("usage: ./go.sh {new|update} [-f]")
+	fmt.Println("usage: ./go.sh {new|update|format} ")
 	fmt.Println("command:")
-	fmt.Println("  new: create a new solution")
-	fmt.Println("  update: update README.md")
-	fmt.Println("flag:")
-	fmt.Println("  -f: force update problems cache")
+	fmt.Println("  new (problemID): create a new solution")
+	fmt.Println("  format: format README.md")
+	fmt.Println("  update: update question cache")
 }
 
 func main() {
 	flag.Parse()
-
 	mode := flag.Arg(0)
-	forceUpdate := flag.Arg(1) == "-f"
 
 	switch mode {
 	case "new":
-		problemID := 0
-		fmt.Print("problem #:")
-		_, err := fmt.Scan(&problemID)
+		problemID, err := strconv.Atoi(flag.Arg(1))
 		if err != nil {
-			fmt.Println("Invalid problem id")
-			printDefault()
-			return
+			fmt.Println("invalid problem #: ", flag.Arg(1))
 		}
-		create(problemID, forceUpdate)
+
+		create(problemID)
+	case "format":
+		format()
+
 	case "update":
-		Format(forceUpdate)
+		update()
 
 	default:
 		fmt.Println("unexpected mode: ", mode)

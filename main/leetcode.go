@@ -10,17 +10,34 @@ import (
 	"strconv"
 )
 
+// QuestionType is the definition of question type
+type QuestionType int
+
+const (
+	normal   QuestionType = 0
+	database QuestionType = 1
+	shell    QuestionType = 2
+)
+
 // CacheFilename stands for a unified cache filename
 var CacheFilename = "../problems.cache"
+
+// QuestionTag  the tag of question
+type QuestionTag struct {
+	Name string
+	Slug string
+}
 
 // Question is a struct to store leetcode problem
 type Question struct {
 	ID       int
+	ActualID int
+	Type     QuestionType
 	Title    string
 	Slug     string
 	Level    string
-	Tags     []string
-	Code     string
+	Tags     []QuestionTag
+	Code     map[string]string
 	TestCase string
 	PaidOnly bool
 }
@@ -31,16 +48,18 @@ func DownloadQuestions() (map[int]Question, error) {
 	questions := map[int]Question{}
 	resp, err := query("query {\n" +
 		"    questions: allQuestions {\n" +
+		"        actualId: questionId\n" +
 		"        id: questionFrontendId\n" +
 		"        title: questionTitle\n" +
 		"        slug: questionTitleSlug\n" +
 		"        level: difficulty\n" +
 		"        paidOnly: isPaidOnly\n" +
-		"        tags: topicTags { name }\n" +
-		"        code: codeDefinition\n" +
+		"        tags: topicTags { name slug }\n" +
+		"        code: codeSnippets { slug: langSlug code }\n" +
 		"        testCase: sampleTestCase\n" +
 		"    }\n" +
 		"}")
+
 	if err != nil {
 		return questions, err
 	}
@@ -49,7 +68,6 @@ func DownloadQuestions() (map[int]Question, error) {
 	for _, rawQuestion := range rawQuestions {
 		question := parseQuestion(rawQuestion.(map[string]interface{}))
 		questions[question.ID] = question
-
 	}
 
 	return questions, nil
@@ -85,29 +103,6 @@ func LoadQuestions(filename string) (map[int]Question, error) {
 	decoder.Decode(&result)
 
 	return result, nil
-}
-
-func getQuestions(forceUpdate bool) (questions map[int]Question) {
-	var err error
-	shouldDownload := forceUpdate
-
-	if !forceUpdate {
-		questions, err = LoadQuestions(CacheFilename)
-		if err != nil {
-			fmt.Printf("Fail to load questions from cache, error:%v\n", err)
-			shouldDownload = true
-		}
-	}
-
-	if shouldDownload {
-		questions, err = DownloadQuestions()
-		if err != nil {
-			panic(err)
-		}
-		SaveQuestions(CacheFilename, questions)
-	}
-
-	return questions
 }
 
 func query(content string) (map[string]interface{}, error) {
@@ -147,32 +142,42 @@ func query(content string) (map[string]interface{}, error) {
 }
 
 func parseQuestion(rawQuestion map[string]interface{}) Question {
-	targetLanguage := "golang"
 	id, _ := strconv.Atoi(rawQuestion["id"].(string))
+	actualID, _ := strconv.Atoi(rawQuestion["actualId"].(string))
 
 	result := Question{
 		ID:       id,
+		ActualID: actualID,
 		Title:    rawQuestion["title"].(string),
 		Slug:     rawQuestion["slug"].(string),
 		Level:    rawQuestion["level"].(string),
 		TestCase: rawQuestion["testCase"].(string),
 		PaidOnly: rawQuestion["paidOnly"].(bool),
+		Code:     make(map[string]string),
 	}
 
 	for _, rawTag := range rawQuestion["tags"].([]interface{}) {
-		result.Tags = append(result.Tags, rawTag.(map[string]interface{})["name"].(string))
+		result.Tags = append(result.Tags, QuestionTag{
+			Name: rawTag.(map[string]interface{})["name"].(string),
+			Slug: rawTag.(map[string]interface{})["slug"].(string),
+		})
 	}
 
 	if rawQuestion["code"] != nil {
-		var rawCodes []interface{}
-		json.Unmarshal([]byte(rawQuestion["code"].(string)), &rawCodes)
-
-		for _, rawCode := range rawCodes {
-			if rawCode.(map[string]interface{})["value"].(string) == targetLanguage {
-				result.Code = rawCode.(map[string]interface{})["defaultCode"].(string)
-				break
-			}
+		for _, codeSnippet := range rawQuestion["code"].([]interface{}) {
+			slug := codeSnippet.(map[string]interface{})["slug"].(string)
+			code := codeSnippet.(map[string]interface{})["code"].(string)
+			result.Code[slug] = code
 		}
 	}
+
+	if _, found := result.Code["mysql"]; found {
+		result.Type = database
+	} else if _, found := result.Code["bash"]; found {
+		result.Type = shell
+	} else {
+		result.Type = normal
+	}
+
 	return result
 }

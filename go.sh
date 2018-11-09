@@ -1,4 +1,4 @@
 #/bin/bash
 
 cd main
-go run main.go leetcode.go readme.go -- $@
+go run $(ls -1 *.go | grep -v _test.go) -- $@
