@@ -49,9 +49,17 @@ Aims:
 122|[Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii) [[Solution](122_best_time_to_buy_and_sell_stock_ii.go)]|Easy|`Array` `Greedy`
 125|[Valid Palindrome](https://leetcode.com/problems/valid-palindrome) [[Solution](125_valid_palindrome.go)]|Easy|`Two Pointers` `String`
 136|[Single Number](https://leetcode.com/problems/single-number) [[Solution](136_single_number.go)]|Easy|`Hash Table` `Bit Manipulation`
+141|[Linked List Cycle](https://leetcode.com/problems/linked-list-cycle) [[Solution](141_linked_list_cycle.go)]|Easy|`Linked List` `Two Pointers`
 155|[Min Stack](https://leetcode.com/problems/min-stack) [[Solution](155_min_stack.go)]|Easy|`Stack` `Design`
+175|[Combine Two Tables](https://leetcode.com/problems/combine-two-tables) [[Solution](175_combine_two_tables.go)]|Easy|
+176|[Second Highest Salary](https://leetcode.com/problems/second-highest-salary) [[Solution](176_second_highest_salary.go)]|Easy|
+177|[Nth Highest Salary](https://leetcode.com/problems/nth-highest-salary) [[Solution](177_nth_highest_salary.go)]|Medium|
+181|[Employees Earning More Than Their Managers](https://leetcode.com/problems/employees-earning-more-than-their-managers) [[Solution](181_employees_earning_more_than_their_managers.go)]|Easy|
+182|[Duplicate Emails](https://leetcode.com/problems/duplicate-emails) [[Solution](182_duplicate_emails.go)]|Easy|
+183|[Customers Who Never Order](https://leetcode.com/problems/customers-who-never-order) [[Solution](183_customers_who_never_order.go)]|Easy|
 189|[Rotate Array](https://leetcode.com/problems/rotate-array) [[Solution](189_rotate_array.go)]|Easy|`Array`
 461|[Hamming Distance](https://leetcode.com/problems/hamming-distance) [[Solution](461_hamming_distance.go)]|Easy|`Bit Manipulation`
+595|[Big Countries](https://leetcode.com/problems/big-countries) [[Solution](595_big_countries.go)]|Easy|
 617|[Merge Two Binary Trees](https://leetcode.com/problems/merge-two-binary-trees) [[Solution](617_merge_two_binary_trees.go)]|Easy|`Tree`
 657|[Robot Return to Origin](https://leetcode.com/problems/robot-return-to-origin) [[Solution](657_robot_return_to_origin.go)]|Easy|`String`
 709|[To Lower Case](https://leetcode.com/problems/to-lower-case) [[Solution](709_to_lower_case.go)]|Easy|`String`

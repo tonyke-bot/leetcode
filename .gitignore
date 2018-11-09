@@ -1,6 +1,6 @@
 # Dev
 .vscode
-*_test.go
+/*_test.go
 
 # Cache
 problems.cache
