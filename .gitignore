@@ -1,6 +1,7 @@
 # Dev
 .vscode
 /*_test.go
+pending_*.*
 
 # Cache
 problems.cache
