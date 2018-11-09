@@ -49,6 +49,8 @@ Aims:
 122|[Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii) [[Solution](122_best_time_to_buy_and_sell_stock_ii.go)]|Easy|`Array` `Greedy`
 125|[Valid Palindrome](https://leetcode.com/problems/valid-palindrome) [[Solution](125_valid_palindrome.go)]|Easy|`Two Pointers` `String`
 136|[Single Number](https://leetcode.com/problems/single-number) [[Solution](136_single_number.go)]|Easy|`Hash Table` `Bit Manipulation`
+155|[Min Stack](https://leetcode.com/problems/min-stack) [[Solution](155_min_stack.go)]|Easy|`Stack` `Design`
+189|[Rotate Array](https://leetcode.com/problems/rotate-array) [[Solution](189_rotate_array.go)]|Easy|`Array`
 461|[Hamming Distance](https://leetcode.com/problems/hamming-distance) [[Solution](461_hamming_distance.go)]|Easy|`Bit Manipulation`
 617|[Merge Two Binary Trees](https://leetcode.com/problems/merge-two-binary-trees) [[Solution](617_merge_two_binary_trees.go)]|Easy|`Tree`
 657|[Robot Return to Origin](https://leetcode.com/problems/robot-return-to-origin) [[Solution](657_robot_return_to_origin.go)]|Easy|`String`
