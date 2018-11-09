@@ -57,9 +57,13 @@ Aims:
 181|[Employees Earning More Than Their Managers](https://leetcode.com/problems/employees-earning-more-than-their-managers) [[Solution](./181_employees_earning_more_than_their_managers.sql)]|Easy|
 182|[Duplicate Emails](https://leetcode.com/problems/duplicate-emails) [[Solution](./182_duplicate_emails.sql)]|Easy|
 183|[Customers Who Never Order](https://leetcode.com/problems/customers-who-never-order) [[Solution](./183_customers_who_never_order.sql)]|Easy|
+184|[Department Highest Salary](https://leetcode.com/problems/department-highest-salary) [[Solution](./184_department_highest_salary.sql)]|Medium|
 189|[Rotate Array](https://leetcode.com/problems/rotate-array) [[Solution](./189_rotate_array.go)]|Easy|`Array`
+197|[Rising Temperature](https://leetcode.com/problems/rising-temperature) [[Solution](./197_rising_temperature.sql)]|Easy|
+262|[Trips and Users](https://leetcode.com/problems/trips-and-users) [[Solution](./262_trips_and_users.sql)]|Hard|
 461|[Hamming Distance](https://leetcode.com/problems/hamming-distance) [[Solution](./461_hamming_distance.go)]|Easy|`Bit Manipulation`
 595|[Big Countries](https://leetcode.com/problems/big-countries) [[Solution](./595_big_countries.sql)]|Easy|
+596|[Classes More Than 5 Students](https://leetcode.com/problems/classes-more-than-5-students) [[Solution](./596_classes_more_than_5_students.sql)]|Easy|
 617|[Merge Two Binary Trees](https://leetcode.com/problems/merge-two-binary-trees) [[Solution](./617_merge_two_binary_trees.go)]|Easy|`Tree`
 620|[Not Boring Movies](https://leetcode.com/problems/not-boring-movies) [[Solution](./620_not_boring_movies.sql)]|Easy|
 657|[Robot Return to Origin](https://leetcode.com/problems/robot-return-to-origin) [[Solution](./657_robot_return_to_origin.go)]|Easy|`String`

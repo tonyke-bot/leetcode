@@ -5,6 +5,7 @@ import (
 	"flag"
 	"fmt"
 	"io/ioutil"
+	"os"
 	"path"
 	"sort"
 	"strconv"
@@ -102,10 +103,10 @@ func create(id int) {
 
 	filename := FormatFilename(question)
 	newFilename := path.Join("..", filename)
-	// if _, err := os.Stat(newFilename); !os.IsNotExist(err) {
-	// 	fmt.Printf("File %s already existed\n", filename)
-	// 	return
-	// }
+	if _, err := os.Stat(newFilename); !os.IsNotExist(err) {
+		fmt.Printf("File %s already existed\n", filename)
+		return
+	}
 
 	sourceCode := GenerateQuestionCode(question)
 	err := ioutil.WriteFile(newFilename, []byte(sourceCode), 0755)
