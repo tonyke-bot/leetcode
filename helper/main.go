@@ -134,30 +134,33 @@ func create(id int) {
 	questions := getQuestions()
 	question, ok := questions[id]
 	if !ok {
-		fmt.Printf("Problem #%d not found\n", id)
-		return
+		fmt.Fprintf(os.Stderr, "Problem #%d not found\n", id)
+		os.Exit(1)
 	}
 
 	if question.PaidOnly {
-		fmt.Println("This problem is paid user only")
-		return
+		fmt.Fprintln(os.Stderr, "This problem is paid user only")
+		os.Exit(1)
 	}
 
-	dirname := path.Join("..", FormatDirectoryName(question))
-	if _, err := os.Stat(dirname); !os.IsNotExist(err) {
-		fmt.Printf("Solution #%d has already been created\n", question.ID)
-		return
+	dirname := FormatDirectoryName(question)
+	dirpath := path.Join("..", dirname)
+	if _, err := os.Stat(dirpath); !os.IsNotExist(err) {
+		fmt.Fprintf(os.Stderr, "Solution #%d has already been created\n", question.ID)
+		os.Exit(1)
 	}
 
-	os.Mkdir(dirname, 0755)
+	os.Mkdir(dirpath, 0755)
 	filename := FormatFilename(question)
-	newFilename := path.Join(dirname, filename)
+	newFilename := path.Join(dirpath, filename)
 	sourceCode := GenerateQuestionCode(question)
 	err := ioutil.WriteFile(newFilename, []byte(sourceCode), 0755)
 	if err != nil {
-		fmt.Printf("Cannot write source code to %v\n", newFilename)
+		fmt.Fprintf(os.Stderr, "Cannot write source code to %v\n", newFilename)
 		panic(err)
 	}
+
+	fmt.Fprintln(os.Stdout, path.Join(dirname, filename))
 }
 
 func update() {
