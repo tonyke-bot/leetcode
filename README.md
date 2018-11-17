@@ -13,9 +13,10 @@ Aims:
 
 ### Solution Overview
 <!-- OVERVIEW START -->
-Easy|Medium|Hard
-:--:|:----:|:--:
-70/268|7/462|2/199
+![Easy: 70/268](https://img.shields.io/badge/Easy-70/268-green.svg?style=for-the-badge)
+![Medium: 7/462](https://img.shields.io/badge/Medium-7/462-orange.svg?style=for-the-badge)
+![Hard: 2/199](https://img.shields.io/badge/Hard-2/199-red.svg?style=for-the-badge)
+
 <!-- OVERVIEW END -->
 
 ### Solution
