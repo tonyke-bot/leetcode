@@ -13,9 +13,9 @@ Aims:
 
 ## Solution Overview
 <!-- OVERVIEW START -->
-![Easy: 70/268](https://img.shields.io/badge/Easy-70/268-green.svg?style=for-the-badge)
-![Medium: 7/462](https://img.shields.io/badge/Medium-7/462-orange.svg?style=for-the-badge)
-![Hard: 2/199](https://img.shields.io/badge/Hard-2/199-red.svg?style=for-the-badge)
+![Easy: 71/269](https://img.shields.io/badge/Easy-71/269-green.svg?style=for-the-badge)
+![Medium: 7/464](https://img.shields.io/badge/Medium-7/464-orange.svg?style=for-the-badge)
+![Hard: 2/200](https://img.shields.io/badge/Hard-2/200-red.svg?style=for-the-badge)
 <!-- OVERVIEW END -->
 
 ## Solution
@@ -88,6 +88,7 @@ Aims:
 657|[Robot Return to Origin](https://leetcode.com/problems/robot-return-to-origin) [[Solution](./657-robot-return-to-origin/657_robot_return_to_origin.go)]|Easy|`String`
 674|[Longest Continuous Increasing Subsequence](https://leetcode.com/problems/longest-continuous-increasing-subsequence) [[Solution](./674-longest-continuous-increasing-subsequence/674_longest_continuous_increasing_subsequence.go)]|Easy|`Array`
 680|[Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii) [[Solution](./680-valid-palindrome-ii/680_valid_palindrome_ii.go)]|Easy|`String`
+700|[Search in a Binary Search Tree](https://leetcode.com/problems/search-in-a-binary-search-tree) [[Solution](./700-search-in-a-binary-search-tree/700_search_in_a_binary_search_tree.go)]|Easy|`Tree`
 709|[To Lower Case](https://leetcode.com/problems/to-lower-case) [[Solution](./709-to-lower-case/709_to_lower_case.go)]|Easy|`String`
 728|[Self Dividing Numbers](https://leetcode.com/problems/self-dividing-numbers) [[Solution](./728-self-dividing-numbers/728_self_dividing_numbers.go)]|Easy|`Math`
 766|[Toeplitz Matrix](https://leetcode.com/problems/toeplitz-matrix) [[Solution](./766-toeplitz-matrix/766_toeplitz_matrix.go)]|Easy|`Array`

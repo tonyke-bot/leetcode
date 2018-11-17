@@ -1,8 +1,6 @@
-package leetcode
+package kit
 
-import (
-	"fmt"
-)
+import "fmt"
 
 // ListNode is a link node
 type ListNode struct {
