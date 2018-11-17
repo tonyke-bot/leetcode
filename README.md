@@ -11,8 +11,15 @@ Aims:
 * Golang
 
 
-### Problems Overview
+### Solution Overview
 <!-- OVERVIEW START -->
+Easy|Medium|Hard
+:--:|:----:|:--:
+70/268|7/462|2/199
+<!-- OVERVIEW END -->
+
+### Solution
+<!-- SOLUTION START -->
 #|Name|Difficulty|Tags
 -:|----|----------|----
 1|[Two Sum](https://leetcode.com/problems/two-sum) [[Solution](./001-two-sum/001_two_sum.go)]|Easy|`Array` `Hash Table`
@@ -94,4 +101,4 @@ Aims:
 905|[Sort Array By Parity](https://leetcode.com/problems/sort-array-by-parity) [[Solution](./905-sort-array-by-parity/905_sort_array_by_parity.go)]|Easy|`Array`
 922|[Sort Array By Parity II](https://leetcode.com/problems/sort-array-by-parity-ii) [[Solution](./922-sort-array-by-parity-ii/922_sort_array_by_parity_ii.go)]|Easy|
 929|[Unique Email Addresses](https://leetcode.com/problems/unique-email-addresses) [[Solution](./929-unique-email-addresses/929_unique_email_addresses.go)]|Easy|`String`
-<!-- OVERVIEW END -->
+<!-- SOLUTION END -->

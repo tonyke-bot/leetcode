@@ -21,14 +21,26 @@ func (qInfos QuestionInfos) Less(i, j int) bool { return qInfos[i].ID < qInfos[j
 
 func format() {
 	readmePath := "../README.md"
-	readmeTableStartTag := []byte("<!-- OVERVIEW START -->")
-	readmeTableEndTag := []byte("<!-- OVERVIEW END -->")
+	readmeOverviewStartTag := []byte("<!-- OVERVIEW START -->")
+	readmeOverviewEndTag := []byte("<!-- OVERVIEW END -->")
+	readmeSolutionStartTag := []byte("<!-- SOLUTION START -->")
+	readmeSolutionEndTag := []byte("<!-- SOLUTION END -->")
 
 	files, err := ioutil.ReadDir("../")
 	if err != nil {
 		panic(fmt.Sprintf("Cannot ReadDir of .., error: %v", err))
 	}
 
+	levelCount := map[string]int{
+		"Easy":   0,
+		"Medium": 0,
+		"Hard":   0,
+	}
+	levelTotalCount := map[string]int{
+		"Easy":   0,
+		"Medium": 0,
+		"Hard":   0,
+	}
 	// Generate Table
 	questions := getQuestions()
 	var questionInfos []Question
@@ -46,11 +58,25 @@ func format() {
 		if !found {
 			panic(fmt.Sprintf("Problem #%d is not found", id))
 		}
+		levelCount[question.Level]++
 		questionInfos = append(questionInfos, question)
 	}
 	sort.Sort(QuestionInfos(questionInfos))
 
-	tableContent := "#|Name|Difficulty|Tags\n" +
+	for _, q := range questions {
+		levelTotalCount[q.Level]++
+	}
+
+	overviewTable := "" +
+		"Easy|Medium|Hard\n" +
+		":--:|:----:|:--:\n" +
+		fmt.Sprintf("%d/%d|%d/%d|%d/%d",
+			levelCount["Easy"], levelTotalCount["Easy"],
+			levelCount["Medium"], levelTotalCount["Medium"],
+			levelCount["Hard"], levelTotalCount["Hard"]) +
+		"\n"
+
+	solutionTable := "#|Name|Difficulty|Tags\n" +
 		"-:|----|----------|----\n"
 	for _, question := range questionInfos {
 		// Don't use path.Join because this filename is used in HTML
@@ -61,7 +87,7 @@ func format() {
 			tags = append(tags, "`"+tag.Name+"`")
 		}
 
-		tableContent += strings.Join([]string{
+		solutionTable += strings.Join([]string{
 			strconv.Itoa(question.ID),
 			fmt.Sprintf("[%s](https://leetcode.com/problems/%s) [[Solution](./%s)]", question.Title, question.Slug, filename),
 			question.Level,
@@ -71,23 +97,38 @@ func format() {
 
 	// Subsititude
 	readme, _ := ioutil.ReadFile(readmePath)
-	startPos := bytes.Index(readme, readmeTableStartTag)
-	endPos := bytes.LastIndex(readme, readmeTableEndTag)
+	overviewStartPos := bytes.Index(readme, readmeOverviewStartTag)
+	overviewEndPos := bytes.LastIndex(readme, readmeOverviewEndTag)
 	switch {
-	case startPos == -1:
+	case overviewStartPos == -1:
 		panic("Cannot find table start tag in README.md")
-	case endPos == -1:
+	case overviewEndPos == -1:
 		panic("Cannot find table end tag in README.md")
-	case startPos > endPos:
+	case overviewStartPos > overviewEndPos:
+		panic("Cannot find overview placeholder")
+	}
+	readme = []byte(string(readme[:overviewStartPos+len(readmeOverviewStartTag)]) +
+		"\n" +
+		overviewTable +
+		string(readme[overviewEndPos:]))
+
+	solutionStartPos := bytes.Index(readme, readmeSolutionStartTag)
+	solutionEndPos := bytes.LastIndex(readme, readmeSolutionEndTag)
+	switch {
+	case solutionStartPos == -1:
+		panic("Cannot find table start tag in README.md")
+	case solutionEndPos == -1:
+		panic("Cannot find table end tag in README.md")
+	case solutionStartPos > solutionEndPos:
 		panic("Cannot find table placeholder")
 	}
-
-	newReadme := string(readme[:startPos+len(readmeTableStartTag)]) + "\n" +
-		tableContent +
-		string(readme[endPos:])
+	readme = []byte(string(readme[:solutionStartPos+len(readmeSolutionStartTag)]) +
+		"\n" +
+		solutionTable +
+		string(readme[solutionEndPos:]))
 
 	// WriteFile
-	err = ioutil.WriteFile(readmePath, []byte(newReadme), 0755)
+	err = ioutil.WriteFile(readmePath, readme, 0755)
 	if err != nil {
 		panic(fmt.Sprintf("Fails to write README.MD, error: %v", err))
 	}
