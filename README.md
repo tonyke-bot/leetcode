@@ -70,6 +70,8 @@ Aims:
 543|[Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree) [[Solution](./543_diameter_of_binary_tree.go)]|Easy|`Tree`
 557|[Reverse Words in a String III](https://leetcode.com/problems/reverse-words-in-a-string-iii) [[Solution](./557_reverse_words_in_a_string_iii.go)]|Easy|`String`
 561|[Array Partition I](https://leetcode.com/problems/array-partition-i) [[Solution](./561_array_partition_i.go)]|Easy|`Array`
+589|[N-ary Tree Preorder Traversal](https://leetcode.com/problems/n-ary-tree-preorder-traversal) [[Solution](./589_n_ary_tree_preorder_traversal.py)]|Easy|`Tree`
+590|[N-ary Tree Postorder Traversal](https://leetcode.com/problems/n-ary-tree-postorder-traversal) [[Solution](./590_n_ary_tree_postorder_traversal.py)]|Easy|`Tree`
 595|[Big Countries](https://leetcode.com/problems/big-countries) [[Solution](./595_big_countries.sql)]|Easy|
 596|[Classes More Than 5 Students](https://leetcode.com/problems/classes-more-than-5-students) [[Solution](./596_classes_more_than_5_students.sql)]|Easy|
 617|[Merge Two Binary Trees](https://leetcode.com/problems/merge-two-binary-trees) [[Solution](./617_merge_two_binary_trees.go)]|Easy|`Tree`
