@@ -75,7 +75,7 @@ func GenerateQuestionCode(question Question) string {
 	if _, found := question.Code["golang"]; found {
 		testCase := formatGeneralTestCase(question.TestCase, "")
 		return "" +
-			"package leetcode\n" +
+			"package main\n" +
 			"\n" +
 			"/*\n" +
 			problemURL + "\n" +

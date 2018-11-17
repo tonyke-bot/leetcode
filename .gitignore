@@ -1,6 +1,6 @@
 # Dev
+**/*_test.go
 .vscode
-/*_test.go
 pending_*.*
 
 # Cache
