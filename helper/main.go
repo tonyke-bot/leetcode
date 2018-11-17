@@ -33,7 +33,11 @@ func format() {
 	questions := getQuestions()
 	var questionInfos []Question
 	for _, f := range files {
-		id := ParseSolutionFilename(f.Name())
+		if !f.IsDir() {
+			continue
+		}
+
+		id := ParseFolderName(f.Name())
 		if id == -1 {
 			continue
 		}
@@ -49,7 +53,8 @@ func format() {
 	tableContent := "#|Name|Difficulty|Tags\n" +
 		"-:|----|----------|----\n"
 	for _, question := range questionInfos {
-		filename := FormatFilename(question)
+		// Don't use path.Join because this filename is used in HTML
+		filename := FormatDirectoryName(question) + "/" + FormatFilename(question)
 		tags := make([]string, len(question.Tags))
 
 		for _, tag := range question.Tags {
@@ -101,13 +106,15 @@ func create(id int) {
 		return
 	}
 
-	filename := FormatFilename(question)
-	newFilename := path.Join("..", filename)
-	if _, err := os.Stat(newFilename); !os.IsNotExist(err) {
-		fmt.Printf("File %s already existed\n", filename)
+	dirname := path.Join("..", FormatDirectoryName(question))
+	if _, err := os.Stat(dirname); !os.IsNotExist(err) {
+		fmt.Printf("Solution #%d has already been created\n", question.ID)
 		return
 	}
 
+	os.Mkdir(dirname, 0755)
+	filename := FormatFilename(question)
+	newFilename := path.Join(dirname, filename)
 	sourceCode := GenerateQuestionCode(question)
 	err := ioutil.WriteFile(newFilename, []byte(sourceCode), 0755)
 	if err != nil {

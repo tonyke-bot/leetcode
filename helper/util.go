@@ -102,6 +102,27 @@ func GenerateQuestionCode(question Question) string {
 	panic("Cannot generate code for question")
 }
 
+// ParseFolderName parses the filename of a solution.
+// -1 will be returned if the given filename is not a directory
+func ParseFolderName(filename string) int {
+	pattern := regexp.MustCompile("^(\\d+)-[0-9a-zA-Z\\-]*$")
+	filename = strings.Trim(filename, "")
+
+	match := pattern.FindStringSubmatch(filename)
+	if match == nil {
+		return -1
+	}
+
+	problemID, _ := strconv.Atoi(match[1])
+	return problemID
+}
+
+// FormatDirectoryName reads question info from question struct
+// and returns a unified directory name
+func FormatDirectoryName(question Question) string {
+	return fmt.Sprintf("%03d-%s", question.ID, question.Slug)
+}
+
 func formatGeneralTestCase(rawTestCase string, linePrefix string) string {
 	result := ""
 

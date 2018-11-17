@@ -1,4 +1,4 @@
-package leetcode
+package main
 
 // Source: https://leetcode.com/problems/unique-morse-code-words
 

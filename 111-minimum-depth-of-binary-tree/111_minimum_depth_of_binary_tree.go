@@ -1,4 +1,4 @@
-package leetcode
+package main
 
 // Source: https://leetcode.com/problems/minimum-depth-of-binary-tree
 
