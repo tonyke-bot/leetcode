@@ -13,7 +13,7 @@ Aims:
 
 ## Solution Overview
 <!-- OVERVIEW START -->
-![Easy: 71/269](https://img.shields.io/badge/Easy-71/269-green.svg?style=for-the-badge)
+![Easy: 73/269](https://img.shields.io/badge/Easy-73/269-green.svg?style=for-the-badge)
 ![Medium: 7/464](https://img.shields.io/badge/Medium-7/464-orange.svg?style=for-the-badge)
 ![Hard: 2/200](https://img.shields.io/badge/Hard-2/200-red.svg?style=for-the-badge)
 <!-- OVERVIEW END -->
@@ -76,6 +76,7 @@ Aims:
 461|[Hamming Distance](https://leetcode.com/problems/hamming-distance) [[Solution](./461-hamming-distance/461_hamming_distance.go)]|Easy|`Bit Manipulation`
 543|[Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree) [[Solution](./543-diameter-of-binary-tree/543_diameter_of_binary_tree.go)]|Easy|`Tree`
 557|[Reverse Words in a String III](https://leetcode.com/problems/reverse-words-in-a-string-iii) [[Solution](./557-reverse-words-in-a-string-iii/557_reverse_words_in_a_string_iii.go)]|Easy|`String`
+559|[Maximum Depth of N-ary Tree](https://leetcode.com/problems/maximum-depth-of-n-ary-tree) [[Solution](./559-maximum-depth-of-n-ary-tree/559_maximum_depth_of_n_ary_tree.py)]|Easy|`Tree` `Depth-first Search` `Breadth-first Search`
 561|[Array Partition I](https://leetcode.com/problems/array-partition-i) [[Solution](./561-array-partition-i/561_array_partition_i.go)]|Easy|`Array`
 589|[N-ary Tree Preorder Traversal](https://leetcode.com/problems/n-ary-tree-preorder-traversal) [[Solution](./589-n-ary-tree-preorder-traversal/589_n_ary_tree_preorder_traversal.py)]|Easy|`Tree`
 590|[N-ary Tree Postorder Traversal](https://leetcode.com/problems/n-ary-tree-postorder-traversal) [[Solution](./590-n-ary-tree-postorder-traversal/590_n_ary_tree_postorder_traversal.py)]|Easy|`Tree`
@@ -98,6 +99,7 @@ Aims:
 832|[Flipping an Image](https://leetcode.com/problems/flipping-an-image) [[Solution](./832-flipping-an-image/832_flipping_an_image.go)]|Easy|`Array`
 852|[Peak Index in a Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array) [[Solution](./852-peak-index-in-a-mountain-array/852_peak_index_in_a_mountain_array.go)]|Easy|`Binary Search`
 860|[Lemonade Change](https://leetcode.com/problems/lemonade-change) [[Solution](./860-lemonade-change/860_lemonade_change.go)]|Easy|`Greedy`
+872|[Leaf-Similar Trees](https://leetcode.com/problems/leaf-similar-trees) [[Solution](./872-leaf-similar-trees/872_leaf_similar_trees.go)]|Easy|`Tree` `Depth-first Search`
 883|[Projection Area of 3D Shapes](https://leetcode.com/problems/projection-area-of-3d-shapes) [[Solution](./883-projection-area-of-3d-shapes/883_projection_area_of_3d_shapes.go)]|Easy|`Math`
 905|[Sort Array By Parity](https://leetcode.com/problems/sort-array-by-parity) [[Solution](./905-sort-array-by-parity/905_sort_array_by_parity.go)]|Easy|`Array`
 922|[Sort Array By Parity II](https://leetcode.com/problems/sort-array-by-parity-ii) [[Solution](./922-sort-array-by-parity-ii/922_sort_array_by_parity_ii.go)]|Easy|
