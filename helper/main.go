@@ -71,7 +71,6 @@ func format() {
 		fmt.Sprintf("![Easy: %d/%d](https://img.shields.io/badge/Easy-%d/%d-green.svg?style=for-the-badge)\n", levelCount["Easy"], levelTotalCount["Easy"], levelCount["Easy"], levelTotalCount["Easy"]) +
 		fmt.Sprintf("![Medium: %d/%d](https://img.shields.io/badge/Medium-%d/%d-orange.svg?style=for-the-badge)\n", levelCount["Medium"], levelTotalCount["Medium"], levelCount["Medium"], levelTotalCount["Medium"]) +
 		fmt.Sprintf("![Hard: %d/%d](https://img.shields.io/badge/Hard-%d/%d-red.svg?style=for-the-badge)\n", levelCount["Hard"], levelTotalCount["Hard"], levelCount["Hard"], levelTotalCount["Hard"]) +
-		"\n"
 
 	solutionTable := "#|Name|Difficulty|Tags\n" +
 		"-:|----|----------|----\n"

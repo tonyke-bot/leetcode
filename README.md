@@ -11,7 +11,7 @@ Aims:
 * Golang
 
 
-### Solution Overview
+## Solution Overview
 <!-- OVERVIEW START -->
 ![Easy: 70/268](https://img.shields.io/badge/Easy-70/268-green.svg?style=for-the-badge)
 ![Medium: 7/462](https://img.shields.io/badge/Medium-7/462-orange.svg?style=for-the-badge)
@@ -19,7 +19,7 @@ Aims:
 
 <!-- OVERVIEW END -->
 
-### Solution
+## Solution
 <!-- SOLUTION START -->
 #|Name|Difficulty|Tags
 -:|----|----------|----
