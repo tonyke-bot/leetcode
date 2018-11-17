@@ -1,6 +1,11 @@
 package leetcode
 
+import "github.com/thagki9/leetcode/kit"
+
 // Source: https://leetcode.com/problems/minimum-depth-of-binary-tree
+
+// TreeNode is a tree node
+type TreeNode = kit.TreeNode
 
 func minDepth(root *TreeNode) int {
 	if root == nil {

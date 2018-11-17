@@ -1,6 +1,11 @@
 package leetcode
 
+import "github.com/thagki9/leetcode/kit"
+
 // Source: https://leetcode.com/problems/path-sum
+
+// TreeNode is a tree node
+type TreeNode = kit.TreeNode
 
 func hasPathSum(root *TreeNode, sum int) bool {
 	if root == nil {

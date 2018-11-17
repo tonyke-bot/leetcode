@@ -1,10 +1,15 @@
 package leetcode
 
+import "github.com/thagki9/leetcode/kit"
+
 /*
 Source: https://leetcode.com/problems/diameter-of-binary-tree
 Test Case:
 [1,2,3,4,5]
 */
+
+// TreeNode is a tree node
+type TreeNode = kit.TreeNode
 
 func diameterOfBinaryTree(root *TreeNode) int {
 	var maxLength = 0

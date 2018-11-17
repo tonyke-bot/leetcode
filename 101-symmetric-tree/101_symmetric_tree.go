@@ -1,6 +1,11 @@
 package leetcode
 
+import "github.com/thagki9/leetcode/kit"
+
 // Source: https://leetcode.com/problems/symmetric-tree
+
+// TreeNode is a tree node
+type TreeNode = kit.TreeNode
 
 func isSymmetric(root *TreeNode) bool {
 	if root == nil {

@@ -1,6 +1,11 @@
 package leetcode
 
+import "github.com/thagki9/leetcode/kit"
+
 // Source: https://leetcode.com/problems/merge-two-binary-trees
+
+// TreeNode is a tree node
+type TreeNode = kit.TreeNode
 
 func mergeTrees(t1 *TreeNode, t2 *TreeNode) *TreeNode {
 	if t1 == nil && t2 == nil {

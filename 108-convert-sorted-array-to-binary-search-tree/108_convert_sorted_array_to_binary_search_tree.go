@@ -1,5 +1,7 @@
 package leetcode
 
+import "github.com/thagki9/leetcode/kit"
+
 // Source: https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree
 // Solution:
 //   1. Choose root(mid point)
@@ -12,6 +14,10 @@ package leetcode
 //   And I doubt that slice has bad performance so I add another function
 //     which has parameters 'left' and 'right' to indicate the array boundry.
 //   The below solution beat 98% of Go solutions.
+
+// TreeNode is a tree node
+type TreeNode = kit.TreeNode
+
 func sortedArrayToBST(nums []int) *TreeNode {
 	if len(nums) == 0 {
 		return nil

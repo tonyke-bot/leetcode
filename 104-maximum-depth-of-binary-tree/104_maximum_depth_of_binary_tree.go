@@ -1,6 +1,11 @@
 package leetcode
 
+import "github.com/thagki9/leetcode/kit"
+
 // Source: https://leetcode.com/problems/maximum-depth-of-binary-tree
+
+// TreeNode is a tree node
+type TreeNode = kit.TreeNode
 
 func maxDepth(root *TreeNode) int {
 	if root == nil {

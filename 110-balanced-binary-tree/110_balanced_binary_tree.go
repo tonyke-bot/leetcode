@@ -1,15 +1,12 @@
 package leetcode
 
+import "github.com/thagki9/leetcode/kit"
+
 // Source: https://leetcode.com/problems/balanced-binary-tree
 
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
+// TreeNode is a tree node
+type TreeNode = kit.TreeNode
+
 func isBalanced(root *TreeNode) bool {
 	delta := calcDepthDelta(root)
 	return delta != -1

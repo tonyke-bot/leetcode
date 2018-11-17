@@ -1,6 +1,11 @@
 package leetcode
 
+import "github.com/thagki9/leetcode/kit"
+
 // Source: https://leetcode.com/problems/same-tree
+
+// TreeNode is a tree node
+type TreeNode = kit.TreeNode
 
 func isSameTree(p *TreeNode, q *TreeNode) bool {
 	same := (p == nil) == (q == nil)

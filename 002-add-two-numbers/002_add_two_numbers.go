@@ -1,6 +1,13 @@
 package leetcode
 
+import (
+	"github.com/thagki9/leetcode/kit"
+)
+
 // Source: https://leetcode.com/problems/add-two-numbers
+
+// ListNode is a list node
+type ListNode = kit.ListNode
 
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	if l1 == nil && l2 == nil {

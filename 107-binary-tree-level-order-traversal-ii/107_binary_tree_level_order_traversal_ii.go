@@ -1,6 +1,11 @@
 package leetcode
 
+import "github.com/thagki9/leetcode/kit"
+
 // Source: https://leetcode.com/problems/binary-tree-level-order-traversal-ii
+
+// TreeNode is a tree node
+type TreeNode = kit.TreeNode
 
 func levelOrderBottom(root *TreeNode) [][]int {
 	pyramid := make([][]int, 0, 1024)

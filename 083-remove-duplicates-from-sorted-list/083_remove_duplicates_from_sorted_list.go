@@ -1,6 +1,11 @@
 package leetcode
 
+import "github.com/thagki9/leetcode/kit"
+
 // Source: https://leetcode.com/problems/remove-duplicates-from-sorted-list
+
+// ListNode is a list node
+type ListNode = kit.ListNode
 
 func deleteDuplicates(head *ListNode) *ListNode {
 	if head == nil {
