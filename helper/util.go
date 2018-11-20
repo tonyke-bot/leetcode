@@ -95,7 +95,7 @@ func GenerateQuestionCode(question Question) string {
 			"\n" +
 			question.Code["python"] + "\n" +
 			"\n" +
-			"if __name__ == 'main':\n" +
+			"if __name__ == '__main__':\n" +
 			"    solver = Solution()\n"
 	}
 
