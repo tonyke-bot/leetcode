@@ -13,8 +13,8 @@ Aims:
 
 ## Solution Overview
 <!-- OVERVIEW START -->
-![Easy: 91/269](https://img.shields.io/badge/Easy-91/269-green.svg?style=for-the-badge)
-![Medium: 30/464](https://img.shields.io/badge/Medium-30/464-orange.svg?style=for-the-badge)
+![Easy: 92/269](https://img.shields.io/badge/Easy-92/269-green.svg?style=for-the-badge)
+![Medium: 35/464](https://img.shields.io/badge/Medium-35/464-orange.svg?style=for-the-badge)
 ![Hard: 4/200](https://img.shields.io/badge/Hard-4/200-red.svg?style=for-the-badge)
 <!-- OVERVIEW END -->
 
@@ -32,6 +32,7 @@ Aims:
 14|[Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix) [[Solution](./014-longest-common-prefix/014_longest_common_prefix.go)]|Easy|`String`
 20|[Valid Parentheses](https://leetcode.com/problems/valid-parentheses) [[Solution](./020-valid-parentheses/020_valid_parentheses.go)]|Easy|`String` `Stack`
 21|[Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists) [[Solution](./021-merge-two-sorted-lists/021_merge_two_sorted_lists.go)]|Easy|`Linked List`
+24|[Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs) [[Solution](./024-swap-nodes-in-pairs/024_swap_nodes_in_pairs.go)]|Medium|`Linked List`
 26|[Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array) [[Solution](./026-remove-duplicates-from-sorted-array/026_remove_duplicates_from_sorted_array.go)]|Easy|`Array` `Two Pointers`
 27|[Remove Element](https://leetcode.com/problems/remove-element) [[Solution](./027-remove-element/027_remove_element.go)]|Easy|`Array` `Two Pointers`
 28|[Implement strStr()](https://leetcode.com/problems/implement-strstr) [[Solution](./028-implement-strstr/028_implement_strstr.go)]|Easy|`Two Pointers` `String`
@@ -55,6 +56,7 @@ Aims:
 106|[Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal) [[Solution](./106-construct-binary-tree-from-inorder-and-postorder-traversal/106_construct_binary_tree_from_inorder_and_postorder_traversal.go)]|Medium|`Array` `Tree` `Depth-first Search`
 107|[Binary Tree Level Order Traversal II](https://leetcode.com/problems/binary-tree-level-order-traversal-ii) [[Solution](./107-binary-tree-level-order-traversal-ii/107_binary_tree_level_order_traversal_ii.go)]|Easy|`Tree` `Breadth-first Search`
 108|[Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree) [[Solution](./108-convert-sorted-array-to-binary-search-tree/108_convert_sorted_array_to_binary_search_tree.go)]|Easy|`Tree` `Depth-first Search`
+109|[Convert Sorted List to Binary Search Tree](https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree) [[Solution](./109-convert-sorted-list-to-binary-search-tree/109_convert_sorted_list_to_binary_search_tree.go)]|Medium|`Linked List` `Depth-first Search`
 110|[Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree) [[Solution](./110-balanced-binary-tree/110_balanced_binary_tree.go)]|Easy|`Tree` `Depth-first Search`
 111|[Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree) [[Solution](./111-minimum-depth-of-binary-tree/111_minimum_depth_of_binary_tree.go)]|Easy|`Tree` `Depth-first Search` `Breadth-first Search`
 112|[Path Sum](https://leetcode.com/problems/path-sum) [[Solution](./112-path-sum/112_path_sum.go)]|Easy|`Tree` `Depth-first Search`
@@ -96,6 +98,7 @@ Aims:
 388|[Longest Absolute File Path](https://leetcode.com/problems/longest-absolute-file-path) [[Solution](./388-longest-absolute-file-path/388_longest_absolute_file_path.go)]|Medium|
 404|[Sum of Left Leaves](https://leetcode.com/problems/sum-of-left-leaves) [[Solution](./404-sum-of-left-leaves/404_sum_of_left_leaves.go)]|Easy|`Tree`
 429|[N-ary Tree Level Order Traversal](https://leetcode.com/problems/n-ary-tree-level-order-traversal) [[Solution](./429-n-ary-tree-level-order-traversal/429_n_ary_tree_level_order_traversal.py)]|Easy|`Tree` `Breadth-first Search`
+445|[Add Two Numbers II](https://leetcode.com/problems/add-two-numbers-ii) [[Solution](./445-add-two-numbers-ii/445_add_two_numbers_ii.go)]|Medium|`Linked List`
 449|[Serialize and Deserialize BST](https://leetcode.com/problems/serialize-and-deserialize-bst) [[Solution](./449-serialize-and-deserialize-bst/449_serialize_and_deserialize_bst.py)]|Medium|`Tree`
 461|[Hamming Distance](https://leetcode.com/problems/hamming-distance) [[Solution](./461-hamming-distance/461_hamming_distance.go)]|Easy|`Bit Manipulation`
 513|[Find Bottom Left Tree Value](https://leetcode.com/problems/find-bottom-left-tree-value) [[Solution](./513-find-bottom-left-tree-value/513_find_bottom_left_tree_value.go)]|Medium|`Tree` `Depth-first Search` `Breadth-first Search`
@@ -127,13 +130,16 @@ Aims:
 674|[Longest Continuous Increasing Subsequence](https://leetcode.com/problems/longest-continuous-increasing-subsequence) [[Solution](./674-longest-continuous-increasing-subsequence/674_longest_continuous_increasing_subsequence.go)]|Easy|`Array`
 680|[Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii) [[Solution](./680-valid-palindrome-ii/680_valid_palindrome_ii.go)]|Easy|`String`
 700|[Search in a Binary Search Tree](https://leetcode.com/problems/search-in-a-binary-search-tree) [[Solution](./700-search-in-a-binary-search-tree/700_search_in_a_binary_search_tree.go)]|Easy|`Tree`
+707|[Design Linked List](https://leetcode.com/problems/design-linked-list) [[Solution](./707-design-linked-list/707_design_linked_list.go)]|Easy|`Linked List` `Design`
 709|[To Lower Case](https://leetcode.com/problems/to-lower-case) [[Solution](./709-to-lower-case/709_to_lower_case.go)]|Easy|`String`
+725|[Split Linked List in Parts](https://leetcode.com/problems/split-linked-list-in-parts) [[Solution](./725-split-linked-list-in-parts/725_split_linked_list_in_parts.go)]|Medium|`Linked List`
 728|[Self Dividing Numbers](https://leetcode.com/problems/self-dividing-numbers) [[Solution](./728-self-dividing-numbers/728_self_dividing_numbers.go)]|Easy|`Math`
 766|[Toeplitz Matrix](https://leetcode.com/problems/toeplitz-matrix) [[Solution](./766-toeplitz-matrix/766_toeplitz_matrix.go)]|Easy|`Array`
 771|[Jewels and Stones](https://leetcode.com/problems/jewels-and-stones) [[Solution](./771-jewels-and-stones/771_jewels_and_stones.go)]|Easy|`Hash Table`
 783|[Minimum Distance Between BST Nodes](https://leetcode.com/problems/minimum-distance-between-bst-nodes) [[Solution](./783-minimum-distance-between-bst-nodes/783_minimum_distance_between_bst_nodes.go)]|Easy|`Binary Search Tree`
 804|[Unique Morse Code Words](https://leetcode.com/problems/unique-morse-code-words) [[Solution](./804-unique-morse-code-words/804_unique_morse_code_words.go)]|Easy|`String`
 814|[Binary Tree Pruning](https://leetcode.com/problems/binary-tree-pruning) [[Solution](./814-binary-tree-pruning/814_binary_tree_pruning.go)]|Medium|`Tree`
+817|[Linked List Components](https://leetcode.com/problems/linked-list-components) [[Solution](./817-linked-list-components/817_linked_list_components.go)]|Medium|`Linked List`
 832|[Flipping an Image](https://leetcode.com/problems/flipping-an-image) [[Solution](./832-flipping-an-image/832_flipping_an_image.go)]|Easy|`Array`
 852|[Peak Index in a Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array) [[Solution](./852-peak-index-in-a-mountain-array/852_peak_index_in_a_mountain_array.go)]|Easy|`Binary Search`
 860|[Lemonade Change](https://leetcode.com/problems/lemonade-change) [[Solution](./860-lemonade-change/860_lemonade_change.go)]|Easy|`Greedy`
