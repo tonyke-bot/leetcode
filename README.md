@@ -13,8 +13,8 @@ Aims:
 
 ## Solution Overview
 <!-- OVERVIEW START -->
-![Easy: 86/269](https://img.shields.io/badge/Easy-86/269-green.svg?style=for-the-badge)
-![Medium: 29/464](https://img.shields.io/badge/Medium-29/464-orange.svg?style=for-the-badge)
+![Easy: 91/269](https://img.shields.io/badge/Easy-91/269-green.svg?style=for-the-badge)
+![Medium: 30/464](https://img.shields.io/badge/Medium-30/464-orange.svg?style=for-the-badge)
 ![Hard: 4/200](https://img.shields.io/badge/Hard-4/200-red.svg?style=for-the-badge)
 <!-- OVERVIEW END -->
 
@@ -84,8 +84,11 @@ Aims:
 197|[Rising Temperature](https://leetcode.com/problems/rising-temperature) [[Solution](./197-rising-temperature/197_rising_temperature.sql)]|Easy|
 199|[Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view) [[Solution](./199-binary-tree-right-side-view/199_binary_tree_right_side_view.go)]|Medium|`Tree` `Depth-first Search` `Breadth-first Search`
 203|[Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements) [[Solution](./203-remove-linked-list-elements/203_remove_linked_list_elements.go)]|Easy|`Linked List`
+206|[Reverse Linked List](https://leetcode.com/problems/reverse-linked-list) [[Solution](./206-reverse-linked-list/206_reverse_linked_list.go)]|Easy|`Linked List`
 226|[Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree) [[Solution](./226-invert-binary-tree/226_invert_binary_tree.go)]|Easy|`Tree`
+234|[Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list) [[Solution](./234-palindrome-linked-list/234_palindrome_linked_list.go)]|Easy|`Linked List` `Two Pointers`
 235|[Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree) [[Solution](./235-lowest-common-ancestor-of-a-binary-search-tree/235_lowest_common_ancestor_of_a_binary_search_tree.py)]|Easy|`Tree`
+237|[Delete Node in a Linked List](https://leetcode.com/problems/delete-node-in-a-linked-list) [[Solution](./237-delete-node-in-a-linked-list/237_delete_node_in_a_linked_list.py)]|Easy|`Linked List`
 257|[Binary Tree Paths](https://leetcode.com/problems/binary-tree-paths) [[Solution](./257-binary-tree-paths/257_binary_tree_paths.go)]|Easy|`Tree` `Depth-first Search`
 262|[Trips and Users](https://leetcode.com/problems/trips-and-users) [[Solution](./262-trips-and-users/262_trips_and_users.sql)]|Hard|
 283|[Move Zeroes](https://leetcode.com/problems/move-zeroes) [[Solution](./283-move-zeroes/283_move_zeroes.go)]|Easy|`Array` `Two Pointers`
@@ -97,6 +100,7 @@ Aims:
 461|[Hamming Distance](https://leetcode.com/problems/hamming-distance) [[Solution](./461-hamming-distance/461_hamming_distance.go)]|Easy|`Bit Manipulation`
 513|[Find Bottom Left Tree Value](https://leetcode.com/problems/find-bottom-left-tree-value) [[Solution](./513-find-bottom-left-tree-value/513_find_bottom_left_tree_value.go)]|Medium|`Tree` `Depth-first Search` `Breadth-first Search`
 515|[Find Largest Value in Each Tree Row](https://leetcode.com/problems/find-largest-value-in-each-tree-row) [[Solution](./515-find-largest-value-in-each-tree-row/515_find_largest_value_in_each_tree_row.go)]|Medium|`Tree` `Depth-first Search` `Breadth-first Search`
+530|[Minimum Absolute Difference in BST](https://leetcode.com/problems/minimum-absolute-difference-in-bst) [[Solution](./530-minimum-absolute-difference-in-bst/530_minimum_absolute_difference_in_bst.go)]|Easy|`Binary Search Tree`
 538|[Convert BST to Greater Tree](https://leetcode.com/problems/convert-bst-to-greater-tree) [[Solution](./538-convert-bst-to-greater-tree/538_convert_bst_to_greater_tree.go)]|Easy|`Tree`
 543|[Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree) [[Solution](./543-diameter-of-binary-tree/543_diameter_of_binary_tree.go)]|Easy|`Tree`
 557|[Reverse Words in a String III](https://leetcode.com/problems/reverse-words-in-a-string-iii) [[Solution](./557-reverse-words-in-a-string-iii/557_reverse_words_in_a_string_iii.go)]|Easy|`String`
@@ -134,6 +138,7 @@ Aims:
 852|[Peak Index in a Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array) [[Solution](./852-peak-index-in-a-mountain-array/852_peak_index_in_a_mountain_array.go)]|Easy|`Binary Search`
 860|[Lemonade Change](https://leetcode.com/problems/lemonade-change) [[Solution](./860-lemonade-change/860_lemonade_change.go)]|Easy|`Greedy`
 872|[Leaf-Similar Trees](https://leetcode.com/problems/leaf-similar-trees) [[Solution](./872-leaf-similar-trees/872_leaf_similar_trees.go)]|Easy|`Tree` `Depth-first Search`
+876|[Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list) [[Solution](./876-middle-of-the-linked-list/876_middle_of_the_linked_list.go)]|Easy|`Linked List`
 883|[Projection Area of 3D Shapes](https://leetcode.com/problems/projection-area-of-3d-shapes) [[Solution](./883-projection-area-of-3d-shapes/883_projection_area_of_3d_shapes.go)]|Easy|`Math`
 889|[Construct Binary Tree from Preorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-postorder-traversal) [[Solution](./889-construct-binary-tree-from-preorder-and-postorder-traversal/889_construct_binary_tree_from_preorder_and_postorder_traversal.go)]|Medium|`Tree`
 894|[All Possible Full Binary Trees](https://leetcode.com/problems/all-possible-full-binary-trees) [[Solution](./894-all-possible-full-binary-trees/894_all_possible_full_binary_trees.go)]|Medium|`Tree` `Recursion`
@@ -141,4 +146,5 @@ Aims:
 905|[Sort Array By Parity](https://leetcode.com/problems/sort-array-by-parity) [[Solution](./905-sort-array-by-parity/905_sort_array_by_parity.go)]|Easy|`Array`
 922|[Sort Array By Parity II](https://leetcode.com/problems/sort-array-by-parity-ii) [[Solution](./922-sort-array-by-parity-ii/922_sort_array_by_parity_ii.go)]|Easy|
 929|[Unique Email Addresses](https://leetcode.com/problems/unique-email-addresses) [[Solution](./929-unique-email-addresses/929_unique_email_addresses.go)]|Easy|`String`
+938|[Range Sum of BST](https://leetcode.com/problems/range-sum-of-bst) [[Solution](./938-range-sum-of-bst/938_range_sum_of_bst.go)]|Medium|`Binary Search Tree`
 <!-- SOLUTION END -->

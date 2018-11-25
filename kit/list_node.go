@@ -18,6 +18,7 @@ func NewListNode(values []int) *ListNode {
 	current := l
 	for _, v := range values {
 		current.Next = &ListNode{Val: v}
+		current = current.Next
 	}
 
 	return l.Next
