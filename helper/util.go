@@ -11,7 +11,7 @@ import (
 // FormatFilename reads question info from question struct
 // and returns a unified filename
 func FormatFilename(question Question) string {
-	basename := fmt.Sprintf("%03d_%s", question.ID, strings.Replace(question.Slug, "-", "_", -1))
+	basename := fmt.Sprintf("%04d_%s", question.ID, strings.Replace(question.Slug, "-", "_", -1))
 	ext := ""
 
 	switch question.Type {
@@ -75,7 +75,7 @@ func GenerateQuestionCode(question Question) string {
 	if _, found := question.Code["golang"]; found {
 		testCase := formatGeneralTestCase(question.TestCase, "")
 		return "" +
-			"package leetcode\n" +
+			fmt.Sprintf("package problem%04d\n", question.ID) +
 			"\n" +
 			"/*\n" +
 			problemURL + "\n" +
@@ -120,7 +120,7 @@ func ParseFolderName(filename string) int {
 // FormatDirectoryName reads question info from question struct
 // and returns a unified directory name
 func FormatDirectoryName(question Question) string {
-	return fmt.Sprintf("%03d-%s", question.ID, question.Slug)
+	return fmt.Sprintf("%04d-%s", question.ID, question.Slug)
 }
 
 func formatGeneralTestCase(rawTestCase string, linePrefix string) string {
