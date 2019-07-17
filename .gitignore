@@ -1,5 +1,6 @@
 # Dev
 .vscode
+.idea
 pending-*/
 
 # Cache
